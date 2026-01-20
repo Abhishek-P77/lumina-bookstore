@@ -1,5 +1,5 @@
 // server/index.js
-
+require('dotenv').config();
 // 1. IMPORTS
 const express = require('express');
 const mongoose = require('mongoose');
@@ -15,12 +15,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // 3. DATABASE CONNECTION
-const dbURI = 'mongodb+srv://abhishek200228_db_user:qQBFLRu3sywBUlgS@cluster0.ljj6rbz.mongodb.net/?appName=Cluster0';
-
-mongoose.connect(dbURI)
-.then(() => console.log("--- MongoDB Cloud Connected ---"))
-.catch(err => console.log("DB Connection Error:", err));
-
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log("MongoDB Connected"))
+    .catch(err => console.log(err));
+    
 // 4. DATABASE SCHEMAS (Models)
 
 // Book Schema
