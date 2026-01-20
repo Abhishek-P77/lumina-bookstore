@@ -1,0 +1,365 @@
+/* client/src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600&display=swap');
+
+/* 1. iOS-Style Mesh Gradient Background */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Deep, rich, liquid background */
+  background: radial-gradient(circle at 0% 0%, #3a1c71 0%, #d76d77 50%, #ffaf7b 100%);
+  background-attachment: fixed; /* Keeps background still while scrolling */
+  color: white;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 2. The "Frosty" Glass Effect (iPhone Control Center Style) */
+.glass {
+  background: rgba(255, 255, 255, 0.15); /* Slightly more opaque */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px) saturate(180%); /* Higher blur + saturation for "vibrancy" */
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 24px; /* Super rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 3. Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  margin: 20px 20px 40px 20px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-left: 25px;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* 4. iOS Style Buttons */
+button {
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px; /* Pill shape */
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, background 0.3s;
+  backdrop-filter: blur(5px);
+}
+
+button:hover {
+  background: white;
+  color: #d76d77; /* Matches the background theme */
+  transform: scale(1.05); /* Gentle zoom */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* 5. Inputs (Search Bar Style) */
+input, textarea {
+  background: rgba(0, 0, 0, 0.2); /* Darker glass for inputs */
+  border: none;
+  padding: 15px;
+  border-radius: 18px;
+  color: white;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.3s;
+}
+
+input:focus, textarea:focus {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* 6. Layout Utils */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 40px;
+}
+
+.book-card {
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring animation */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.book-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Shadow behind image for depth */
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  letter-spacing: -0.5px; /* Tight text tracking like iOS */
+}
+
+/* --- BRAND LOGO STYLES --- */
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between logo image and text */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* The Glowing Text */
+.brand-text {
+  font-family: 'SF Pro Display', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: -0.5px;
+  /* Gold-to-White Gradient */
+  background: linear-gradient(to right, #ffffff 20%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Glow Effect */
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));
+}
+
+/* The Logo Image */
+.logo-img {
+  height: 45px;
+  width: 45px;
+  /* This filter makes the icon white/bright to match the dark theme */
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  transition: transform 0.3s ease;
+}
+
+.brand-container:hover .logo-img {
+  transform: rotate(-10deg) scale(1.1); /* Subtle animation on hover */
+}
+
+/* --- FOOTER EFFECTS --- */
+
+/* The Glass Footer Container */
+.footer-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+  margin-top: 80px;
+  padding: 50px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Gradient Line at the Top */
+.footer-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+}
+
+/* Social Icon Animation */
+.social-icon {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.8rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+  color: #fff;
+  background: rgba(255, 215, 0, 0.2); /* Gold Tint */
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3); /* Gold Glow */
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+/* Contact Text Hover */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  margin-top: 20px;
+}
+
+.contact-link:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* --- MEGA FOOTER LAYOUT --- */
+
+.footer-content {
+  display: flex;
+  justify-content: space-between; /* Spreads content out */
+  flex-wrap: wrap; /* Wraps on mobile */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto; /* Centers the whole container */
+  text-align: left; /* Default alignment */
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px; /* Prevents squishing on small screens */
+}
+
+/* Headings in Footer */
+.footer-heading {
+  color: #ffd700; /* Gold */
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-family: 'SF Pro Display', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Link Lists */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  padding-left: 5px; /* Subtle slide effect */
+}
+
+/* Newsletter Input */
+.newsletter-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  width: 70%;
+  outline: none;
+}
+
+.newsletter-btn {
+  padding: 10px 15px;
+  background: #ffd700;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- RESPONSIVE FOOTER STYLES --- */
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Aligns items to top */
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Default Desktop Alignments */
+.footer-left { text-align: left; flex: 1; }
+.footer-center { text-align: center; flex: 1; }
+.footer-right { text-align: right; flex: 1; }
+
+.footer-right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns social icons to right on desktop */
+}
+
+/* --- MOBILE VIEW (Max Width 768px) --- */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Stack vertically */
+    align-items: center;    /* Center everything */
+    gap: 30px;
+  }
+
+  .footer-left, 
+  .footer-center, 
+  .footer-right {
+    text-align: center; /* Force center text */
+    width: 100%;
+  }
+
+  .footer-right-container {
+    align-items: center; /* Center icons on mobile */
+  }
+
+  .brand-container {
+    justify-content: center; /* Center logo on mobile */
+  }
+}
